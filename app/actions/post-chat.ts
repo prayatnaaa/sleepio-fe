@@ -7,19 +7,20 @@ export const postChat = async (query: string) => {
     body: JSON.stringify({ query }),
   });
 
-  console.log(response);
+  // console.log(response);
 
   if (!response.ok) {
     return { success: false, message: "Failed to generate reponses" };
   }
 
-  const message = await response.json();
+  const data = await response.json();
 
   return {
     success: true,
     message: "Success",
     data: {
-      message,
+      content: data.content,
+      audioFile: data.audio,
     },
   };
 };
