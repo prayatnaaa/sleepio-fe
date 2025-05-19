@@ -19,6 +19,7 @@ export const postChat = async (query: string) => {
     success: true,
     message: "Success",
     data: {
+      // content: data.content.documents[0],
       content: data.content,
       audioFile: data.audio,
     },

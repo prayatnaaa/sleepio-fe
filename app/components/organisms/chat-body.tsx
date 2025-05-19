@@ -15,6 +15,8 @@ const ChatBody = () => {
   const [chat, setChat] = React.useState<MessageProps[]>([]);
   const [isPending, startTransition] = React.useTransition();
 
+  console.log(chat);
+
   const handleMessage = (message: MessageProps) => {
     setChat((prev) => [...prev, message]);
   };
@@ -62,8 +64,20 @@ const ChatBody = () => {
               />
             )}
           </div>
+          <h1
+            className={`${
+              chat.length == 0 &&
+              "flex justify-center w-1/2 text-white font-semibold text-4xl absolute top-[40%]"
+            }`}
+          >
+            Ask anything about sleep
+          </h1>
         </div>
-        <div className="pb-4">
+        <div
+          className={`pb-4 ${
+            chat.length == 0 && "w-1/2 absolute bottom-[30%]"
+          }`}
+        >
           <ChatInput submitHandler={handleSubmit} />
         </div>
       </div>

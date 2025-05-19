@@ -56,7 +56,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         </div>
       </div>
       <div
-        className={`flex flex-col gap-1 ${isUser && "hidden"} ${
+        className={`flex flex-row gap-1 ${isUser && "hidden"} ${
           isPending && "hidden"
         } text-white`}
       >
@@ -67,7 +67,9 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         >
           <FileAudio2Icon size={100} color="white" />
         </Button>
-        {audioUrl && <audio src={audioUrl} controls autoPlay />}
+        {audioUrl && (
+          <audio className="bg-transparent" src={audioUrl} controls autoPlay />
+        )}
       </div>
     </div>
   );
