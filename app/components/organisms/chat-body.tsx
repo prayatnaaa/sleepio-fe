@@ -4,6 +4,7 @@ import React from "react";
 import ChatBubble from "../atoms/chat-bubble";
 import ChatInput from "../molecules/message-input";
 import { postChat } from "@/app/actions/post-chat";
+import UserHeader from "./user-header";
 
 type MessageProps = {
   role: "user" | "assistant";
@@ -45,6 +46,7 @@ const ChatBody = () => {
 
   return (
     <div className="w-full h-screen flex justify-center bg-gray-950">
+      <UserHeader />
       <div className="w-1/2 flex flex-col items-stretch justify-between overflow-y-hidden">
         <div className="flex flex-col overflow-y-auto px-1 py-10 gap-8">
           <div className="w-full mx-auto space-y-6">
